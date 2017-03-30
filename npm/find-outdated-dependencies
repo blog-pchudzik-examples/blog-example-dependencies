@@ -1,0 +1,13 @@
+#!/bin/sh
+
+npm -s install
+
+MAX_OUTDATED_PACKAGES=$1
+OUTDATED_PACKAGES=`npm -s outdated | grep -v beta | grep -v rc`
+OUTDATED_PACKAGES_COUNT=`echo "$OUTDATED_PACKAGES" | tail -n +2 | wc -l`
+
+if [ $OUTDATED_PACKAGES_COUNT -ge $MAX_OUTDATED_PACKAGES ]; then
+    echo "There is $OUTDATED_PACKAGES_COUNT outdated dependencies!"
+    printf '%b\n\n' "$OUTDATED_PACKAGES"
+    exit $OUTDATED_PACKAGES_COUNT
+fi

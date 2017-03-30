@@ -1,0 +1,15 @@
+#!/bin/sh
+
+./gradlew -DoutputFormatter=json dependencyUpdates > /dev/null 2>&1
+
+MAX_OUTDATED_DEPENDENCIES=$1
+REPORT="build/dependencyUpdates/report.txt"
+#OUDATED_DEPENDENCIES_COUNT=`cat "$REPORT" | jq ".outdated.count"` #when using json
+OUDATED_DEPENDENCIES_COUNT=`sed -n -e '/The following dependencies have later/,$p' $REPORT | tail -n +2 | wc -l`
+
+if [ $OUDATED_DEPENDENCIES_COUNT -ge $MAX_OUTDATED_DEPENDENCIES ]; then
+    echo "There is $OUDATED_DEPENDENCIES_COUNT outdated dependencies!"
+    printf '%b\n\n' "$(cat $REPORT)"
+    exit $OUDATED_DEPENDENCIES_COUNT
+fi
+

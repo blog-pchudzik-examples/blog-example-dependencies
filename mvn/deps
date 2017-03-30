@@ -1,0 +1,5 @@
+The following dependencies in Dependencies have newer versions:
+  junit:junit ............................................ 3.8.1 -> 4.12
+  org.apache.commons:commons-lang3 .......................... 3.4 -> 3.5
+  org.springframework:spring-core ....... 4.3.0.RELEASE -> 4.3.7.RELEASE
+

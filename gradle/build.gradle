@@ -1,0 +1,22 @@
+plugins {
+    id 'com.github.ben-manes.versions' version '0.14.0'
+}
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile "org.springframework:spring-core:3.2.4.RELEASE"
+    testCompile "junit:junit:3.8.1"
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}

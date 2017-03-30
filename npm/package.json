@@ -1,0 +1,20 @@
+{
+  "name": "dependenices-update",
+  "version": "1.0.0",
+  "description": "dependencies update",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+  		"lodash": "3.6.0",
+  		"angular": "1.5.9"
+  },
+  "devDependencies": {
+  	"mocha": "3.1.0",
+  	"testdouble": "2.1.0",
+  	"proxyquire": "1.7.10"
+  },
+  "author": "Pawel Chudzik",
+  "license": "MIT"
+}
